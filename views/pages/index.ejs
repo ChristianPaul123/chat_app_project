@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+  <div class="app">
+    <div class="screen join-screen active">
+      <div class="form">
+        <h2>join Chat</h2>
+        <div class="form-input">
+          <p>Please put your name</p>
+          <label>Username</label>
+          <input type="text"  id="username">
+        </div>
+        <div class="form-input">
+          <button id="join-user">Join</button>
+        </div>
+      </div>
+    </div>
+    <div class="screen chat-screen ">
+      
+      <header>
+          <%- include('../partials/header'); %>
+        </header>
+      <div class="header">
+        <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+        <div class="logo">Chatroom</div>
+        <button id="exit-chat">Exit</button>
+      </div>
+      <div class="messages">
+         <!--this is where the chat is updated-->
+
+      </div>
+      <div class="typebox" id="message-form">
+        <input type="text" id="message-input">
+        <button id="send-message">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+
+
+  <script type="text/javascript" src="socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="code.js"></script>
+</body>
+</html>

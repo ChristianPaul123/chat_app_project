@@ -1,0 +1,108 @@
+(function(){
+  const clientsTotal = document.getElementById('client-total')
+  const messageForm = document.getElementById('message-form')
+  const messageInput = document.getElementById('message-input')
+
+  const messageTone = new Audio('/message-tone.mp3')
+
+  const app = document.querySelector(".app");
+  const socket = io();
+
+  let uname = "";
+  
+  app.querySelector(".join-screen #join-user").addEventListener("click",function(){
+    let username = app.querySelector(".join-screen #username").value;
+    if(username.length == 0){
+      return;
+    }
+
+
+    socket.emit("newuser",username);
+    uname = username;
+    app.querySelector(".join-screen").classList.remove("active");
+    app.querySelector(".chat-screen").classList.add("active");
+    greetingFunction();
+
+    socket.on('clients-total', (data) => {
+      clientsTotal.innerText = `Total Clients: ${data}`
+    })
+
+
+  });
+
+  app.querySelector(".chat-screen #send-message").addEventListener("click",function(){
+    let message = app.querySelector(".chat-screen #message-input").value;
+    if(message.length == 0){
+      return;
+    }
+    renderMessage("my",{
+      username:uname,
+      text:message
+    });
+    socket.emit("chat",{
+      username:uname,
+      text:message
+    });
+    app.querySelector(".chat-screen #message-input").value = "";
+  });
+
+  app.querySelector(".chat-screen #exit-chat").addEventListener("click",function(){ 
+    socket.emit("exituser", uname);
+    window.location.href = window.location.href;
+  });
+
+  window.addEventListener('beforeunload', function () {
+  preventDefault();
+  socket.emit("disconnect", uname);
+  window.location.href = window.location.href;
+});
+
+
+  socket.on("update",function(update){
+    renderMessage("update",update);
+  });
+
+  socket.on("chat",function(message){
+    messageTone.play();
+    renderMessage("other",message);
+  });
+
+
+
+  function greetingFunction() {
+    alert("Hello " +"\""+ uname +"\"" + " have fun with the others");
+  }
+
+
+  function renderMessage(type,message){
+    let messageContainer = app.querySelector(".chat-screen .messages");
+    if(type == "my"){
+      let el = document.createElement("div");
+        el.setAttribute("class","message my-message");
+        el.innerHTML = `
+          <div>
+              <div class="name">You</div>
+              <div class="text">${message.text}</div>
+          </div>
+          `;
+          messageContainer.appendChild(el);
+    } else if(type == "other"){
+      let el = document.createElement("div");
+        el.setAttribute("class","message other-message");
+        el.innerHTML = `
+          <div>
+              <div class="name">${message.username}</div>
+              <div class="text">${message.text}</div>
+          </div>
+          `;
+          messageContainer.appendChild(el);
+    } else if(type == "update"){
+      let el = document.createElement("div");
+        el.setAttribute("class","update");
+        el.innerText =  message;
+          messageContainer.appendChild(el);
+    }
+    //scroll to the end
+    messageContainer.scrollTop = messageContainer.scrollHeight - messageContainer.clientHeight;
+  };
+})();
