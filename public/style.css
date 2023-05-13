@@ -266,18 +266,23 @@ border-radius: 1rem 1rem 0rem 0rem;
 
 .chat-screen .typebox{
   width: 100%;
-  height: 50px;
+  height: 5rem;
   display: flex;
+  flex-direction: row;
 }
 
 .chat-screen .typebox input {
-  flex: 1;
-  height: 50px;
-  font-size: 18px;
+  display: flex;
+  flex: 1 1 2rem;
+  height: 100%;
+  width: 90%;
+  font-size: 1.8rem;
+  padding: 0 1rem;
+  background: #ffffffcd;
 }
 
 .chat-screen .typebox button {
-  width: 80px;
+  width: 6rem;
   height: 100%;
   background: #111;
   color: white;
