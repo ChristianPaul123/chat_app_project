@@ -3,7 +3,7 @@
   const messageForm = document.getElementById('message-form')
   const messageInput = document.getElementById('message-input')
 
-  const messageTone = new Audio('/message-tone.mp3')
+  const messageTone = new Audio('/chat_01.mp3')
 
   const app = document.querySelector(".app");
   const socket = io();
@@ -13,6 +13,7 @@
   app.querySelector(".join-screen #join-user").addEventListener("click",function(){
     let username = app.querySelector(".join-screen #username").value;
     if(username.length == 0){
+      alert("please put a username to continue")
       return;
     }
 
@@ -51,7 +52,7 @@
     window.location.href = window.location.href;
   });
 
-  window.addEventListener('beforeunload', function () {
+  window.addEventListener('onoffline', function () {
   preventDefault();
   socket.emit("disconnect", uname);
   window.location.href = window.location.href;
