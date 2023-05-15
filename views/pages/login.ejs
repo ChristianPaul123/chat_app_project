@@ -13,9 +13,9 @@
         <div class="form login">
             <span class="title">Login</span>
 
-            <form name="loginForm" action="/index" onsubmit="return loginAccount()">
+            <form name="loginForm"  onsubmit="return loginAccount()" action="/index">
                 <div class="input-field">
-                    <input type="text" placeholder="Enter your email" required>
+                    <input type="email" placeholder="Enter your email" required>
                     <i class="uil uil-envelope icon"></i>
                 </div>
                 <div class="input-field">
@@ -49,7 +49,7 @@
         <div class="form signup">
             <span class="title">Registration</span>
 
-            <form name="signupForm" action="/login" onsubmit="return createAccount()">
+            <form name="signupForm"  onsubmit="return createAccount()" action="/login">
                 <div class="input-field">
                     <input type="text" name="user-name" placeholder="Enter your name" required>
                     <i class="uil uil-user"></i>

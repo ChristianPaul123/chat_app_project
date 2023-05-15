@@ -76,6 +76,7 @@
   border: none;
   outline: none;
   font-size: 16px;
+  text-transform: none;
   border-bottom: 2px solid #ccc;
   border-top: 2px solid transparent;
   transition: all 0.2s ease;
@@ -122,6 +123,7 @@
 .checkbox-content input{
   margin-right: 10px;
   accent-color: #4070f4;
+  text-transform: none;
 }
 
 .form .text{

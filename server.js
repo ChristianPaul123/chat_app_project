@@ -12,14 +12,15 @@ let socketsConected = new Set()
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-//picture in server using express
+//public in server using express
 app.use(express.static(path.join(__dirname+"/public")));
 
-// index page
+// login page
 app.get('/login', function(req, res) {
   res.render('pages/login');
 });
 
+//index page
 app.get('/index', function(req, res) {
   res.render('pages/index');
 });

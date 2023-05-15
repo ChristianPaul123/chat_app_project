@@ -1,4 +1,5 @@
-function createAccount() {
+function createAccount(e) {
+  e.preventDefault();
   var Name = document.forms['signupForm']['user-name'].value;
   var email = document.forms['signupForm']['email'].value;
   var password = document.forms['signupForm']['password'].value;
@@ -25,17 +26,20 @@ function createAccount() {
       email: email,
       password: password,
       
-    }
+    };
 
     window.alert('Account successfully created.\nYou can now login your new account.');
     var json = JSON.stringify(newUser);
     var json2 = JSON.stringify(newUser);
     localStorage.setItem(email, json);
     localStorage.setItem(Name,json2);
+    console.log("user added");
     return true;
   }
 };
-function loginAccount() {
+
+function loginAccount(e) {
+  e.preventDefault();
       let email = document.forms['loginForm']['email'].value;
       let password = document.forms['loginForm']['password'].value;
 
@@ -54,11 +58,11 @@ function loginAccount() {
 
 
 
-const container = document.querySelector(".container"),
-    pwShowHide = document.querySelectorAll(".showHidePw"),
-    pwFields = document.querySelectorAll(".password"),
-    signUp = document.querySelector(".signup-link"),
-    login = document.querySelector(".login-link");
+const container = document.querySelector(".container");
+const    pwShowHide = document.querySelectorAll(".showHidePw");
+const    pwFields = document.querySelectorAll(".password");
+const    signUp = document.querySelector(".signup-link");
+const    login = document.querySelector(".login-link");
 
   //   js code to show/hide password and change icon
   pwShowHide.forEach(eyeIcon =>{
