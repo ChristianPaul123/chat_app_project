@@ -24,6 +24,7 @@ body{
   font-family: "Roboto", sans-serif;
   height: 100vh;
   justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
@@ -263,6 +264,8 @@ border-radius: 1rem 1rem 0rem 0rem;
   padding: 10px;
   font-style: italic;
 }
+
+
 
 .chat-screen .typebox{
   width: 100%;

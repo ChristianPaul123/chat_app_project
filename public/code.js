@@ -1,9 +1,9 @@
 (function(){
   const clientsTotal = document.getElementById('client-total')
-  const messageForm = document.getElementById('message-form')
   const messageInput = document.getElementById('message-input')
 
   const messageTone = new Audio('/chat_01.mp3')
+  const clientTone = new Audio('/join_client.mp3')
 
   const app = document.querySelector(".app");
   const socket = io();
@@ -44,22 +44,29 @@
       username:uname,
       text:message
     });
+
+
     app.querySelector(".chat-screen #message-input").value = "";
   });
+
+  
 
   app.querySelector(".chat-screen #exit-chat").addEventListener("click",function(){ 
     socket.emit("exituser", uname);
     window.location.href = window.location.href;
   });
 
-  window.addEventListener('onoffline', function () {
-  preventDefault();
-  socket.emit("disconnect", uname);
-  window.location.href = window.location.href;
-});
+  window.addEventListener('onoffline', function() {
+    e.preventDefault(); 
+    socket.emit("disconnect", uname);
+    window.location.href = window.location.href;
+  });
+
+ 
 
 
   socket.on("update",function(update){
+  clientTone.play();
     renderMessage("update",update);
   });
 
