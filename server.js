@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname+"/public")));
 
 // login page
-app.get('/login', function(req, res) {
+app.get('/', function(req, res) {
   res.render('pages/login');
 });
 
