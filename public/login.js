@@ -61,7 +61,7 @@ function createAccount(e) {
   var name = localStorage.getItem(Name);
 
   if(name != null){
-    window.alert('Username has already be taken!');
+    window.alert('Username has already in use!');
     return false;
   }
   else if (data != null) {
@@ -80,7 +80,7 @@ function createAccount(e) {
       
     };
 
-    window.alert('Account successfully created.\nYou can now login your new account.');
+    window.alert('Account successfully created. \n You can now login your account.');
     var json = JSON.stringify(newUser);
     var json2 = JSON.stringify(newUser);
     localStorage.setItem(email, json);
