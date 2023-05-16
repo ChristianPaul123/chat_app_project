@@ -35,7 +35,6 @@ const    login = document.querySelector(".login-link");
 
 
 function loginAccount(e) {
-  e.preventDefault();
       let email = document.forms['loginForm']['email'].value;
       let password = document.forms['loginForm']['password'].value;
 
@@ -53,7 +52,6 @@ function loginAccount(e) {
     };
 
 function createAccount(e) {
-  e.preventDefault();
   var Name = document.forms['signupForm']['user-name'].value;
   var email = document.forms['signupForm']['email'].value;
   var password = document.forms['signupForm']['password'].value;
