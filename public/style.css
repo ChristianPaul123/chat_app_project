@@ -34,7 +34,7 @@ header {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 4rem;
+  height: 4.1rem;
 }
 
 header .chat-logo {
