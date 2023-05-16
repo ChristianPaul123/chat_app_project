@@ -282,6 +282,7 @@ border-radius: 1rem 1rem 0rem 0rem;
   font-size: 1.8rem;
   padding: 0 1rem;
   background: #ffffffcd;
+  text-transform: none;
 }
 
 .chat-screen .typebox button {
