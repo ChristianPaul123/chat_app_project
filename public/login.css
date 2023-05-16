@@ -1,10 +1,6 @@
 
 .container{
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   max-width: 430px;
   width: 100%;
   background: #fff;
