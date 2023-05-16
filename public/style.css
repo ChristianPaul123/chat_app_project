@@ -258,6 +258,7 @@ header .chat-logo span {
 
 .chat-screen .messages .message .text {
   word-wrap: break-word;
+  text-transform: none;
 }
 
 .chat-screen .messages .update {
