@@ -18,7 +18,7 @@
     let hours_ampm = hours % 12;
     let hoursampm = hours ? hours_ampm : 12;
     let minutesampm = minutes.toString().padStart(2, '0');
-    let mergeTime = hours_ampm + ':' + minutesampm + ' ' + ap;
+    let mergeTime = hoursampm + ':' + minutesampm + ' ' + ap;
 
 
   const app = document.querySelector(".app");
