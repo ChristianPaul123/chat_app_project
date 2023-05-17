@@ -111,7 +111,7 @@
               <div class="text">${message.text}</div>
           </div>
           `; 
-          up.innerHTML = `<p>time sent:  ${passed}</p>`;
+          up.innerHTML = `<p>time sent:  ${mergeTime}</p>`;
           messageContainer.appendChild(el);
           messageContainer.append(up);
 
@@ -126,7 +126,7 @@
               <div class="text">${message.text}</div>
           </div>
           `; 
-          up.innerHTML = `<p>time sent:  ${passed}</p>`;
+          up.innerHTML = `<p>time sent:  ${mergeTime}</p>`;
           messageContainer.appendChild(el);
           messageContainer.appendChild(up);
     } else if(type == "update"){
