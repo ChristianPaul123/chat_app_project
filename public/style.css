@@ -155,34 +155,76 @@ header .chat-logo span {
   font-size: 1.6rem;
 }
 
-.screen .form-input button {
+.screen  .form-button {
+  width: 90%;
+  margin: 2rem 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.screen .form-button button:first-child {
   padding: 1rem 2rem;
-  background: #eee;
+  background: #d4783a;
   border-radius: 0.2rem;
   box-shadow: rgb(111, 78, 55) 0px 5px 15px;
   font-size: 16px;
-  color: #6f4e37;
+  color: #ffffff;
   outline: none;
   cursor: pointer;
   border: none;
   transition: 0.3s ease all;
 }
 
-.screen .form-input:hover button {
-  background: #111;
+.screen .form-button button:first-child:hover {
+  background: #c67b1f;
   border-radius: 0.2rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  color: #eee;
+  color: #000000;
   outline: none;
   cursor: pointer;
   border: none;
 }
 
-.screen .form-input:active button {
-  background: #111;
+.screen .form-button button:first-child:active {
+  background: #955d28;
   border-radius: 0.2rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  color: #eee;
+  color: #000000;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  opacity: 0.3;
+}
+
+.screen .form-button button:last-child {
+  padding: 1rem 2rem;
+  background: #d3641a;
+  border-radius: 0.2rem;
+  box-shadow: rgb(111, 78, 55) 0px 5px 15px;
+  font-size: 16px;
+  color: #000000;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease all;
+}
+
+.screen .form-button button:last-child:hover{
+  background: #964400;
+  border-radius: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #a39b9b;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.screen .form-button button:last-child:active {
+  background: #de7d1b;
+  border-radius: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #000000;
   outline: none;
   cursor: pointer;
   border: none;
