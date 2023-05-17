@@ -1,9 +1,25 @@
 (function(){
   const clientsTotal = document.getElementById('client-total')
-  const messageInput = document.getElementById('message-input')
 
+  //to add a sound
   const messageTone = new Audio('/chat_01.mp3')
   const clientTone = new Audio('/join_client.mp3')
+
+ // to display the time sent using toLocalestring
+  //var Time = new Date().toLocaleTimeString('en-PH', {
+   // hour: 'numeric', minute: 'numeric', hour12: true
+//}).replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+
+//hardcoded time display
+    let today = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let ap = hours >= 12 ? 'pm' : 'am';
+    let hours_ampm = hours % 12;
+    let hoursampm = hours ? hours_ampm : 12;
+    let minutesampm = minutes.toString().padStart(2, '0');
+    let mergeTime = hours_ampm + ':' + minutesampm + ' ' + ap;
+
 
   const app = document.querySelector(".app");
   const socket = io();
@@ -86,30 +102,40 @@
     let messageContainer = app.querySelector(".chat-screen .messages");
     if(type == "my"){
       let el = document.createElement("div");
+      let up = document.createElement("p")
         el.setAttribute("class","message my-message");
+        up.setAttribute("class","message my-message");
         el.innerHTML = `
           <div>
               <div class="name">You</div>
               <div class="text">${message.text}</div>
           </div>
-          `;
+          `; 
+          up.innerHTML = `<p>time sent:  ${passed}</p>`;
           messageContainer.appendChild(el);
+          messageContainer.append(up);
+
     } else if(type == "other"){
       let el = document.createElement("div");
+      let up = document.createElement("p")
         el.setAttribute("class","message other-message");
+        up.setAttribute("class","message my-message");
         el.innerHTML = `
           <div>
               <div class="name">${message.username}</div>
               <div class="text">${message.text}</div>
           </div>
-          `;
+          `; 
+          up.innerHTML = `<p>time sent:  ${passed}</p>`;
           messageContainer.appendChild(el);
+          messageContainer.appendChild(up);
     } else if(type == "update"){
       let el = document.createElement("div");
         el.setAttribute("class","update");
         el.innerText =  message;
-          messageContainer.appendChild(el);
+          messageContainer.append(el);
     }
+
     //scroll to the end
     messageContainer.scrollTop = messageContainer.scrollHeight - messageContainer.clientHeight;
   };

@@ -242,14 +242,20 @@ header .chat-logo span {
 
 .chat-screen .messages .message {
   display: flex;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .chat-screen .messages .message > div {
   max-width: 80%;
   background: #fff;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
-  padding: 10px;
+  padding: 1rem;
+}
+
+.chat-screen .messages .message p {
+  font-size: 1rem;
+  margin-top: -1.5rem;
+  text-transform: lowercase;
 }
 
 .chat-screen .messages .message {
