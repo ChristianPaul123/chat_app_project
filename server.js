@@ -39,18 +39,19 @@ io.on("connection",function(socket){
       io.emit('clients-total', socketsConected.size)
   })
 
-   socket.on("disconnect",function(username) {
-    username = socket.username;
-    io.emit("update", username + " got disconnected in the convo")
-    console.log('Socket disconnected', socket.id)
-   socketsConected.delete(socket.id)
-    io.emit('clients-total', socketsConected.size)
-  });
 
   socket.on("exituser",function(username){
     socket.broadcast.emit("update", username + " left the convo")
     console.log('Socket exited', socket.id)
     socketsConected.delete(socket.id)
+    io.emit('clients-total', socketsConected.size)
+  });
+
+  socket.on("disconnect",function(username) {
+    username = socket.username;
+    io.emit("update", username + " got disconnected in the convo")
+    console.log('Socket disconnected', socket.id)
+   socketsConected.delete(socket.id)
     io.emit('clients-total', socketsConected.size)
   });
 
@@ -63,6 +64,8 @@ io.on("connection",function(socket){
   socket.on("chat",function(message){
     socket.broadcast.emit("chat", message);
   });
+
+
 });
 
 server.listen(port, () => {

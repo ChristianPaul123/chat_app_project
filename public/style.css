@@ -33,6 +33,7 @@ body {
 header {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
   height: 4.1rem;
 }
@@ -41,10 +42,9 @@ header .chat-logo {
   display: flex;
   flex: row;
   padding: 1rem;
-  background: linear-gradient(to right, #bdc3c7, #2c3e50);
-  color: wheat;
+  background: linear-gradient(to right, #743e0e, #bd7d10);
+  color: rgb(255, 255, 255);
   border: 2px solid;
-  gap: 1.5;
   border-radius: 2rem 2rem 2rem 2rem;
 }
 
@@ -61,11 +61,19 @@ header .chat-logo span {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-right: 2rem;
+  border-radius: 2rem;
 }
 
-.chat-logo h3 {
-  padding-left: 1rem;
+.chat-logo h5 {
   word-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ text-align: justify;
+ font-size: 1.6rem;
+ color: rgba(215, 215, 215, 1);
+ padding-bottom: .2rem;
 }
 
 .app {
@@ -119,11 +127,11 @@ header .chat-logo span {
 }
 
 .screen h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
+  margin-bottom: 3rem;
+  font-size: 3rem;
   color: #111;
-  border-bottom: 4px solid #555;
-  padding: 5px 0px;
+  border-bottom: .4rem solid #555;
+  padding: .5rem 0;
   display: inline-block;
 }
 
@@ -137,7 +145,7 @@ header .chat-logo span {
 
 .screen .form-input label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: .5rem;
 }
 
 .screen .form-input input {
@@ -148,7 +156,7 @@ header .chat-logo span {
 }
 
 .screen .form-input button {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   background: #eee;
   border-radius: 0.2rem;
   box-shadow: rgb(111, 78, 55) 0px 5px 15px;
@@ -193,7 +201,7 @@ header .chat-logo span {
 }
 
 .chat-screen .header .clients-total {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #eee;
 }
 
@@ -204,11 +212,23 @@ header .chat-logo span {
 }
 
 .chat-screen .header button {
-  padding: 5px 10px;
-  border: 1px solid #eee;
+  padding: .1rem .5rem;
+  border: .2rem solid #eee;
   background: transparent;
   color: #ecdcdc;
-  font-size: 15px;
+  font-size: 1.6rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.chat-screen .header button:hover {
+  padding: .1rem .5rem;
+  border: .2rem solid #94572b;
+  background: rgba(215, 215, 215, 4);
+  color: #000000;
+  font-size: 1.6rem;
+  border-radius: 5rem;
   cursor: pointer;
   outline: none;
 }
@@ -232,6 +252,10 @@ header .chat-logo span {
   padding: 10px;
 }
 
+.chat-screen .messages .message {
+  color: #6f4e37;
+}
+
 .chat-screen .messages .message.my-message > div {
   border-radius: 1.6rem;
   border-bottom-right-radius: 0rem;
@@ -253,11 +277,12 @@ header .chat-logo span {
 }
 
 .chat-screen .messages .message .name {
-  font-size: 13px;
+  font-size: 2rem;
   color: #555;
 }
 
 .chat-screen .messages .message .text {
+  font-size: 1.6rem;
   word-wrap: break-word;
   text-transform: none;
 }
@@ -284,6 +309,7 @@ header .chat-logo span {
   padding: 0 1rem;
   background: #ffffffcd;
   text-transform: none;
+  border-bottom-left-radius: 2rem;
 }
 
 .chat-screen .typebox button {
@@ -295,4 +321,5 @@ header .chat-logo span {
   outline: none;
   border: none;
   cursor: pointer;
+  border-bottom-right-radius: 2rem;
 }
