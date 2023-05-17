@@ -309,9 +309,17 @@ header .chat-logo span {
   border-bottom-right-radius: 0rem;
 }
 
+.chat-screen .messages .message.my-message > span {
+  background: transparent;
+}
+
 .chat-screen .messages .message.other-message > div {
   border-radius: 1.6rem;
   border-bottom-left-radius: 0rem;
+}
+
+.chat-screen .messages .message.other-message > span {
+ background: transparent;
 }
 
 .chat-screen .messages .message.my-message {

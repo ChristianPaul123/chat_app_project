@@ -103,7 +103,7 @@
     let messageContainer = app.querySelector(".chat-screen .messages");
     if(type == "my"){
       let el = document.createElement("div");
-      let up = document.createElement("p")
+      let up = document.createElement("span")
         el.setAttribute("class","message my-message");
         up.setAttribute("class","message my-message");
         el.innerHTML = `
@@ -112,22 +112,22 @@
               <div class="text">${message.text}</div>
           </div>
           `; 
-          up.innerHTML = `<p>time sent:  ${mergeTime}</p>`;
+          up.innerHTML = `<span>time sent:  ${mergeTime}</span>`;
           messageContainer.appendChild(el);
           messageContainer.append(up);
 
     } else if(type == "other"){
       let el = document.createElement("div");
-      let up = document.createElement("p")
+      let up = document.createElement("span")
         el.setAttribute("class","message other-message");
-        up.setAttribute("class","message my-message");
-        el.innerHTML = `
+        up.setAttribute("class","message other-message");
+        el.innerHTML = `<
           <div>
               <div class="name">${message.username}</div>
               <div class="text">${message.text}</div>
           </div>
           `; 
-          up.innerHTML = `<p>time sent:  ${mergeTime}</p>`;
+          up.innerHTML = `<span>time sent:  ${mergeTime}</span>`;
           messageContainer.appendChild(el);
           messageContainer.appendChild(up);
     } else if(type == "update"){
