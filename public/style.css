@@ -130,7 +130,7 @@ header .chat-logo span {
   margin-bottom: 3rem;
   font-size: 3rem;
   color: #111;
-  border-bottom: .4rem solid #555;
+  border-bottom: .4rem solid #b86b34;
   padding: .5rem 0;
   display: inline-block;
 }
@@ -151,7 +151,7 @@ header .chat-logo span {
 .screen .form-input input {
   width: 100%;
   padding: 1rem;
-  border: 0.5rem solid #555555;
+  border: 0.5rem solid #b86b34;
   font-size: 1.6rem;
 }
 

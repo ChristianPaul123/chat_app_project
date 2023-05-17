@@ -34,24 +34,25 @@ const    login = document.querySelector(".login-link");
   });
 
 
-function loginAccount(e) {
+function loginAccount() {
       let email = document.forms['loginForm']['email'].value;
       let password = document.forms['loginForm']['password'].value;
 
       var user = localStorage.getItem(email);
       var data = JSON.parse(user);
 
-      if (user == null || password != data.password) {
+      if (user === null || password != data.password) {
         alert('Incorrect email or password');
         return false;
+
       } else if (email == data.email && password == data.password) {
         alert(`Welcome back ${data.firstName}!`);
         localStorage.setItem('signedInUser', user);
         return true;
-      }
+      };
     };
 
-function createAccount(e) {
+function createAccount() {
   var Name = document.forms['signupForm']['user-name'].value;
   var email = document.forms['signupForm']['email'].value;
   var password = document.forms['signupForm']['password'].value;
@@ -85,7 +86,6 @@ function createAccount(e) {
     var json2 = JSON.stringify(newUser);
     localStorage.setItem(email, json);
     localStorage.setItem(Name,json2);
-    console.log("user added");
     return true;
   }
 };
