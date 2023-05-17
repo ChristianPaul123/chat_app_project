@@ -38,6 +38,7 @@ function loginAccount() {
       let email = document.forms['loginForm']['email'].value;
       let password = document.forms['loginForm']['password'].value;
 
+      var Name = localStorage.getItem(Name);
       var user = localStorage.getItem(email);
       var data = JSON.parse(user);
 
@@ -46,7 +47,7 @@ function loginAccount() {
         return false;
 
       } else if (email == data.email && password == data.password) {
-        alert(`Welcome back ${data.firstName}!`);
+        alert(`Welcome back ${data.Name}!`);
         localStorage.setItem('signedInUser', user);
         return true;
       };
