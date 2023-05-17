@@ -24,6 +24,7 @@
   const app = document.querySelector(".app");
   const socket = io();
 
+  
   let uname = "";
   
   app.querySelector(".join-screen #join-user").addEventListener("click",function(){
