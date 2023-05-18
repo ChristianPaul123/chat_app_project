@@ -6,19 +6,12 @@
   const clientTone = new Audio('/join_client.mp3')
 
  // to display the time sent using toLocalestring
-  //var Time = new Date().toLocaleTimeString('en-PH', {
-   // hour: 'numeric', minute: 'numeric', hour12: true
+ // var Time = new Date().toLocaleTimeString('en-PH', {
+ //  hour: 'numeric', minute: 'numeric', hour12: true
 //}).replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
 
 //hardcoded time display
-    let today = new Date();
-    let hours = today.getHours();
-    let minutes = today.getMinutes();
-    let ap = hours >= 12 ? 'pm' : 'am';
-    let hours_ampm = hours % 12;
-    let hoursampm = hours ? hours_ampm : 12;
-    let minutesampm = minutes.toString().padStart(2, '0');
-    let mergeTime = hoursampm + ':' + minutesampm + ' ' + ap;
+
 
 
   const app = document.querySelector(".app");
@@ -79,7 +72,8 @@
     window.location.href = window.location.href;
   });
 
- 
+
+
 
 
   socket.on("update",function(update){
@@ -87,9 +81,9 @@
     renderMessage("update",update);
   });
 
-  socket.on("chat",function(message){
+  socket.on("chat",function(message,mergeTime){
     messageTone.play();
-    renderMessage("other",message);
+    renderMessage("other",message,mergeTime);
   });
 
 
@@ -99,7 +93,10 @@
   }
 
 
-  function renderMessage(type,message){
+  function renderMessage(type,message,mergeTime){
+   mergeTime = new Date().toLocaleTimeString('en-PH', {
+      hour: 'numeric', minute: 'numeric', hour12: true
+   }).replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     let messageContainer = app.querySelector(".chat-screen .messages");
     if(type == "my"){
       let el = document.createElement("div");

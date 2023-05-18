@@ -27,10 +27,7 @@ app.get('/index', function(req, res) {
 
 
 
-
-
 io.on("connection",function(socket){
-
   socket.on("newuser",function(username){
      socket.username = username;
       socket.broadcast.emit("update",  socket.username + " joined the convo")
@@ -55,14 +52,12 @@ io.on("connection",function(socket){
     io.emit('clients-total', socketsConected.size)
   });
 
-  
-
-  socket.on('message', (data) => {
-    socket.broadcast.emit('chat-message', data)
+   socket.on("message", (data) => {
+    socket.broadcast.emit("chat-message", data)
   });
 
-  socket.on("chat",function(message){
-    socket.broadcast.emit("chat", message);
+  socket.on("chat",function(message,mergeTime){
+    socket.broadcast.emit("chat", message,mergeTime);
   });
 
 
