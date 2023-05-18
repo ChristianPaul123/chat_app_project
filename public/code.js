@@ -5,14 +5,6 @@
   const messageTone = new Audio('/chat_01.mp3')
   const clientTone = new Audio('/join_client.mp3')
 
- // to display the time sent using toLocalestring
- // var Time = new Date().toLocaleTimeString('en-PH', {
- //  hour: 'numeric', minute: 'numeric', hour12: true
-//}).replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
-
-//hardcoded time display
-
-
 
   const app = document.querySelector(".app");
   const socket = io();
@@ -37,8 +29,6 @@
     socket.on('clients-total', (data) => {
       clientsTotal.innerText = `Total Clients: ${data}`
     })
-
-
   });
 
   app.querySelector(".chat-screen #send-message").addEventListener("click",function(){
@@ -118,7 +108,7 @@
       let up = document.createElement("span")
         el.setAttribute("class","message other-message");
         up.setAttribute("class","message other-message");
-        el.innerHTML = `<
+        el.innerHTML = `
           <div>
               <div class="name">${message.username}</div>
               <div class="text">${message.text}</div>
