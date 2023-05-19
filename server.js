@@ -49,7 +49,7 @@ io.on("connection",function(socket){
     username = socket.username;
     io.emit("update", username + " got disconnected in the convo")
     console.log('Socket disconnected', socket.id)
-   socketsConected.delete(socket.id)
+    socketsConected.delete(socket.id)
     io.emit('clients-total', socketsConected.size)
   });
 
